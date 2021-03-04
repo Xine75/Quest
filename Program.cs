@@ -20,6 +20,7 @@ namespace Quest
             Challenge whatSecond = new Challenge(
                 "What is the current second?", DateTime.Now.Second, 50);
 
+            //choosing a random number between 1-9
             int randomNumber = new Random().Next() % 10;
             Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
 
@@ -78,6 +79,22 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+
+            Console.Write("Would you like to play again? \n(Y/N)> ");
+            string answer = Console.ReadLine().ToLower();
+
+            if (answer == "y")
+            {
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
+
     }
 }
