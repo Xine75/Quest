@@ -11,9 +11,20 @@ namespace Quest
         {
 
             // Make a new "Adventurer" object using the "Adventurer" class
+
+            Robe playerRobe = new Robe();
+            {
+                playerRobe.Length = 36;
+                playerRobe.Color = new List<string>()
+                    {
+                            "purple", "black", "yellow"
+                    };
+            }
             Console.Write("Hello, let's play a game! What's your name?\n> ");
             string userName = Console.ReadLine();
-            Adventurer theAdventurer = new Adventurer(userName);
+            Adventurer theAdventurer = new Adventurer(userName, playerRobe);
+            Console.WriteLine(theAdventurer.GetDescription());
+
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -106,18 +117,3 @@ namespace Quest
     }
 }
 
-
-//   Console.Write("Would you like to play again? \n(Y/N)> ");
-// string continueAnswer = Console.ReadLine().ToLower();
-
-// if (continueAnswer == "y")
-// {
-//     foreach (Challenge challenge in challenges)
-//     {
-//         challenge.RunChallenge(theAdventurer);
-//     }
-// }
-// else
-// {
-//     return;
-// }
