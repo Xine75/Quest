@@ -17,7 +17,7 @@ namespace Quest
                 playerRobe.Length = 36;
                 playerRobe.Color = new List<string>()
                     {
-                            "purple", "black", "yellow"
+                            "purple,", "black", "and yellow"
                     };
             }
             Console.Write("Hello, let's play a game! What's your name?\n> ");
@@ -43,6 +43,7 @@ namespace Quest
                 //choosing a random number between 1-9
                 int randomNumber = new Random().Next() % 10;
                 Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
+
 
                 Challenge favoriteBeatle = new Challenge(
                     @"Who's your favorite Beatle?
@@ -82,6 +83,7 @@ namespace Quest
                     challenge.RunChallenge(theAdventurer);
 
                 }
+
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
                 // And praises or humiliates them accordingly

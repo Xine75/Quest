@@ -52,16 +52,16 @@ namespace Quest
 
         public string GetDescription()
         {
-            string dressed = "";
+            string allTheColors = "";
             List<string> robeColors = new List<string>();
             robeColors = ColorfulRobe.Color;
 
             foreach (string color in robeColors)
             {
-                dressed += $"{color} ";
+                allTheColors += $" {color}";
 
             }
-            return ($"Hi, {Name}, you are wearing a {dressed}-colored robe that is {ColorfulRobe.Length} inches long. Good luck on your quest!");
+            return ($"Hi, {Name}, you are wearing a gorgeous{allTheColors}-colored robe that is {ColorfulRobe.Length} inches long. Good luck on your quest!");
 
         }
     }
