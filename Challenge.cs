@@ -43,7 +43,7 @@ namespace Quest
             }
             else
             {
-                Console.WriteLine("You have failed the challenge, there will be consequences.");
+                Console.WriteLine("Wrong! You have lost points.");
                 adventurer.Awesomeness -= _awesomenessChange;
             }
 
