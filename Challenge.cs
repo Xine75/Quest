@@ -19,6 +19,7 @@ namespace Quest
         // Note the constructor parameters and what is done with them
         public Challenge(string text, int correctAnswer, int awesomenessChange)
         {
+            //_underscore denotes "field" and is not publically accessible
             _text = text;
             _correctAnswer = correctAnswer;
             _awesomenessChange = awesomenessChange;
@@ -47,7 +48,7 @@ namespace Quest
                 adventurer.Awesomeness -= _awesomenessChange;
             }
 
-            // Note how we call an Adventurer object's method
+            // NRun GetAdventurerStatus .method on adventurer
             Console.WriteLine(adventurer.GetAdventurerStatus());
             Console.WriteLine();
         }

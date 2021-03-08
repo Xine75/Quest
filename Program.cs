@@ -10,8 +10,6 @@ namespace Quest
     {
         static void Main(string[] args)
         {
-
-
             //create an instance of a robe, from Robe.cs and Adventurer.cs.  Describe its length and create of list of colors it contains.
             Robe playerRobe = new Robe();
             {
@@ -28,7 +26,7 @@ namespace Quest
 
             // Make a new "Adventurer" object using the "Adventurer" class.  By adding playerRobe, the Adventurer now wears the robe created above with props from Robe.cs and Adventurer.cs.
             Adventurer theAdventurer = new Adventurer(userName, playerRobe);
-            //This line of code will write out the description of the robe the Adventurer is wearing
+            //This line of code will write out the description of the robe the Adventurer is wearing. GetDescription is a .method on the Adventurer
             Console.WriteLine(theAdventurer.GetDescription());
 
             // Create a few challenges for our Adventurer's quest
@@ -73,8 +71,6 @@ namespace Quest
                 //  If an Adventurer has an Awesomeness less than the min, they are terrible
                 int minAwesomeness = 0;
                 int maxAwesomeness = 100;
-
-
 
                 // A list of challenges for the Adventurer to complete
                 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.

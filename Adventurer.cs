@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Quest
 {
-    // An instance of the Adventurer class is an object that will undergo some challenges
+    //Blueprint for an Adventurer
     public class Adventurer
     {
         // The is an "immutable" property. It only has a "get".
@@ -16,7 +16,7 @@ namespace Quest
 
         public Robe ColorfulRobe { get; }
 
-        // A constructor to make a new Adventurer object with a given name and robe
+        // A constructor to make a new Adventurer object with a given name, score and robe. Must have all 3 of these things
         public Adventurer(string name, Robe robe)
         {
             Name = name;
@@ -50,21 +50,17 @@ namespace Quest
             return $"Adventurer, {Name}, is {status}";
         }
 
-        //creates the GetDescription function so that the program will describe the robe that is assigned to the adventurer
-        //it gets the string color list from program.cs -- I'm actually not sure how these interact
+        //creates the GetDescription .method so that the program will describe the robe that is assigned to the adventurer
+        //it gets the string color list from program.cs 
         public string GetDescription()
         {
             string allTheColors = "";
-            List<string> robeColors = new List<string>();
-            robeColors = ColorfulRobe.Color;
 
-            foreach (string color in robeColors)
+            foreach (string color in ColorfulRobe.Color)
             {
                 allTheColors += $" {color}";
-
             }
             return ($"Hi, {Name}, you are wearing a gorgeous{allTheColors}-colored robe that is {ColorfulRobe.Length} inches long. Good luck on your quest!");
-
         }
     }
 }
