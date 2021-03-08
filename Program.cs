@@ -116,11 +116,13 @@ namespace Quest
                 if (answer != "y")
                 {
                     Console.WriteLine("Goodbye!");
+                    Console.Clear();
                     return;
 
                 }
                 else if (answer == "y")
                 {
+                    Console.Clear();
                     Console.WriteLine("OK, let's play again!\n ");
                     ExecuteAdventure();
                 }
