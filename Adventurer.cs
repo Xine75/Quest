@@ -16,7 +16,7 @@ namespace Quest
 
         public Robe ColorfulRobe { get; }
 
-        // A constructor to make a new Adventurer object with a given name
+        // A constructor to make a new Adventurer object with a given name and robe
         public Adventurer(string name, Robe robe)
         {
             Name = name;
@@ -50,18 +50,20 @@ namespace Quest
             return $"Adventurer, {Name}, is {status}";
         }
 
+        //creates the GetDescription function so that the program will describe the robe that is assigned to the adventurer
+        //it gets the string color list from program.cs -- I'm actually not sure how these interact
         public string GetDescription()
         {
-            string dressed = "";
+            string allTheColors = "";
             List<string> robeColors = new List<string>();
             robeColors = ColorfulRobe.Color;
 
             foreach (string color in robeColors)
             {
-                dressed += $"{color} ";
+                allTheColors += $" {color}";
 
             }
-            return ($"Hi, {Name}, you are wearing a {dressed}-colored robe that is {ColorfulRobe.Length} inches long. Good luck on your quest!");
+            return ($"Hi, {Name}, you are wearing a gorgeous{allTheColors}-colored robe that is {ColorfulRobe.Length} inches long. Good luck on your quest!");
 
         }
     }

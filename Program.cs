@@ -1,4 +1,5 @@
 ﻿using System;
+//because be are using <List>
 using System.Collections.Generic;
 
 // Every class in the program is defined within the "Quest" namespace
@@ -10,19 +11,24 @@ namespace Quest
         static void Main(string[] args)
         {
 
-            // Make a new "Adventurer" object using the "Adventurer" class
 
+            //create an instance of a robe, from Robe.cs and Adventurer.cs.  Describe its length and create of list of colors it contains.
             Robe playerRobe = new Robe();
             {
                 playerRobe.Length = 36;
                 playerRobe.Color = new List<string>()
                     {
-                            "purple", "black", "yellow"
+                            "purple,", "black", "and yellow"
                     };
             }
+            //When game starts, the user is prompted to enter their name
             Console.Write("Hello, let's play a game! What's your name?\n> ");
+            //Read/store the name entered in userName variable
             string userName = Console.ReadLine();
+
+            // Make a new "Adventurer" object using the "Adventurer" class.  By adding playerRobe, the Adventurer now wears the robe created above with props from Robe.cs and Adventurer.cs.
             Adventurer theAdventurer = new Adventurer(userName, playerRobe);
+            //This line of code will write out the description of the robe the Adventurer is wearing
             Console.WriteLine(theAdventurer.GetDescription());
 
             // Create a few challenges for our Adventurer's quest
@@ -31,28 +37,33 @@ namespace Quest
             //   a correct answer
             //   a number of awesome points to gain or lose depending on the success of the challenge
 
+            // Wrap the game commands in ExecuteAdventure() function to make it easer to repeat the game if the player chooses.
             ExecuteAdventure();
             void ExecuteAdventure()
             {
+                //as declared in Challenge.cs, a challenge takes 3 parameters: string question, int correctAnswer, int awesomenessChange
                 Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
-                Challenge theAnswer = new Challenge(
-                    "What's the answer to life, the universe and everything?", 42, 25);
-                Challenge whatSecond = new Challenge(
-                    "What is the current second?", DateTime.Now.Second, 50);
+                Challenge theAnswer = new Challenge("What's the answer to life, the universe and everything?", 42, 25);
+                Challenge whatSecond = new Challenge("What is the current second?", DateTime.Now.Second, 50);
+                //this is my cheater code so I know the answer to this one
+                Console.WriteLine(DateTime.Now.Second);
 
                 //choosing a random number between 1-9
                 int randomNumber = new Random().Next() % 10;
                 Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
+                //more cheater code
+                Console.WriteLine(randomNumber);
+
 
                 Challenge favoriteBeatle = new Challenge(
-                    @"Who's your favorite Beatle?
-                    1) John
-                    2) Paul
-                    3) George
-                    4) Ringo
-                ",
-                    4, 20
-                );
+ @"Who's your favorite Muppet?
+ 1) Kermit
+ 2) Gonzo
+ 3) Miss Piggy
+ 4) Janice
+",
+ 3, 20
+);
 
                 // "Awesomeness" is like our Adventurer's current "score"
                 // A higher Awesomeness is better
@@ -83,6 +94,7 @@ namespace Quest
 
                 }
 
+
                 // This code examines how Awesome the Adventurer is after completing the challenges
                 // And praises or humiliates them accordingly
                 if (theAdventurer.Awesomeness >= maxAwesomeness)
@@ -103,12 +115,14 @@ namespace Quest
 
                 if (answer != "y")
                 {
-                    Console.WriteLine("Bye bye!");
+                    Console.WriteLine("Goodbye!");
+                    Console.Clear();
                     return;
 
                 }
                 else if (answer == "y")
                 {
+                    Console.Clear();
                     Console.WriteLine("OK, let's play again!\n ");
                     ExecuteAdventure();
                 }
